@@ -42,13 +42,12 @@ India has a three-layer healthcare crisis that **no existing platform solves sim
 
 ## ✨ What SahiDawa Does
 
-```
-📱 Scan medicine barcode  →  🔍 AI verifies against CDSCO database  →  ✅ Real / ⚠️ Suspicious / ❌ Fake
-       +
-🗣️ Speak symptoms in your language  →  🤖 AI triage in 22 Indian languages  →  🏥 Nearest verified pharmacy
-       +
-📸 Report suspicious medicine  →  🗺️ Community counterfeit heatmap  →  📢 District-level alerts
-```
+### 💡 The Core Workflow
+
+- **📱 Scan Medicine** ➔ 🔍 **AI Verifies (CDSCO)** ➔ ✅ **Real** / ⚠️ **Suspicious** / ❌ **Fake**
+- **🗣️ Speak Symptoms** ➔ 🤖 **AI Triage (22 Languages)** ➔ 🏥 **Find Nearest Pharmacy**
+- **📸 Report Fakes** ➔ 🗺️ **Community Heatmap** ➔ 📢 **District-Level Alerts**
+
 
 ### Core Features _(Currently in active development)_
 
@@ -69,46 +68,19 @@ India has a three-layer healthcare crisis that **no existing platform solves sim
 
 ```mermaid
 flowchart TD
-    User([Rural Citizen / Patient]) -->|Scan Barcode / Voice Input| Client
-
-    subgraph "Frontend (PWA)"
-        Client[Next.js 15 Client\n(Tailwind, Workbox, ZXing)]
-    end
-
-    subgraph "Backend API Gateway"
-        API[Node.js Express API]
-        Cache[(Redis Cache)]
-        API <--> Cache
-    end
-
-    subgraph "Machine Learning Service"
-        ML[Python FastAPI Service]
-        AI[Sarvam AI / LangChain]
-        Vision[OpenCV / TF Lite]
-        Voice[Whisper ASR]
-        
-        ML --> AI
-        ML --> Vision
-        ML --> Voice
-    end
-
-    subgraph "Data & Storage"
-        DB[(Supabase PostgreSQL\nPostGIS + pgvector)]
-        CDN[(Cloudinary CDN)]
-    end
-
-    subgraph "Autonomous Agents"
-        Agent[LangChain CDSCO Poller]
-    end
-
-    Client -->|HTTPS API Calls| API
-    Client -->|Media Uploads| ML
-    API <-->|Read/Write| DB
-    ML <-->|Check Packages/Vectors| DB
-    ML -->|Upload Suspicious Images| CDN
-    Agent -->|Fetch Recalls| CDSCO[CDSCO Portal]
-    Agent -->|Update Alerts| DB
+    A[Rural Citizen / Patient] -->|Scan Barcode / Voice Input| B[Next.js PWA Client]
+    B -->|API Request| C[Node.js Express API]
+    C <-->|Verify Data| D[(Supabase PostgreSQL)]
+    C <-->|Cache| E[(Redis Cache)]
+    B -->|Media Uploads| F[Python FastAPI Service]
+    F -->|Process Voice| G[Whisper ASR]
+    F -->|Analyze Image| H[OpenCV / TF Lite]
+    F -->|Medical Triage| I[Sarvam AI / LangChain]
+    I --> C
+    J[LangChain CDSCO Poller] -->|Fetch Recalls| K[CDSCO Portal]
+    J -->|Update Alerts| D
 ```
+
 
 ---
 
@@ -155,7 +127,7 @@ flowchart TD
 
 ## 🗺️ Roadmap & Phases
 
-### Phase 1 — Foundation & Core Scanner _(April Week 1–2)_
+### Phase 1 — Foundation & Core Scanner _(Pre-GSSoC / Early May)_
 
 - [x] Project scaffolding (Next.js + TypeScript + Tailwind)
 - [ ] CDSCO drug database scraper + PostgreSQL schema
@@ -165,7 +137,7 @@ flowchart TD
 - [ ] GitHub Actions CI pipeline
 - [ ] English UI with i18n setup
 
-### Phase 2 — Map + Multilingual + Offline _(April Week 3 – May)_
+### Phase 2 — Map + Multilingual + Offline _(Coding Begins - Mid May)_
 
 - [ ] PostGIS pharmacy + ASHA worker map (Leaflet.js)
 - [ ] i18n system — 22 Indian language JSON files
@@ -175,7 +147,7 @@ flowchart TD
 - [ ] Redis caching for drug lookups
 - [ ] OpenCV.js packaging geometry detection
 
-### Phase 3 — AI Health Assistant + Agents _(May – June)_
+### Phase 3 — AI Health Assistant + Agents _(Main Contribution Period - June)_
 
 - [ ] TF Lite medicine image classifier
 - [ ] Whisper ASR voice input (22 languages)
@@ -184,7 +156,7 @@ flowchart TD
 - [ ] Counterfeit heatmap + D3.js visualization
 - [ ] Push notification system for district alerts
 
-### Phase 4 — Polish, Security & Launch _(June – July)_
+### Phase 4 — Polish, Security & Launch _(Final Evaluations - July)_
 
 - [ ] WCAG 2.1 accessibility audit
 - [ ] Lighthouse CI (target 90+ score)
