@@ -308,11 +308,9 @@ export default function PharmacyMapPage() {
             setIsLoading(false);
         }
     }, []);
-
+    
    useEffect(() => {
-    console.log("useEffect running");
     if (navigator.geolocation) {
-        console.log("geolocation available");
         navigator.geolocation.getCurrentPosition(
             (pos) => {
                 const loc = { lat: pos.coords.latitude, lng: pos.coords.longitude };
@@ -406,14 +404,10 @@ export default function PharmacyMapPage() {
     }, [fetchNearby]);
 
 const handleMapReady = useCallback(() => {
-    if (!initialFetchDone.current && !userLocation) {
-        if (navigator.geolocation) {
-            handleLocateUser(); //
-        } else {
-            fetchNearby(DEFAULT_CENTER.lat, DEFAULT_CENTER.lng);
-        }
+    if (!initialFetchDone.current) {
+        fetchNearby(DEFAULT_CENTER.lat, DEFAULT_CENTER.lng);
     }
-}, [fetchNearby, userLocation, handleLocateUser]);
+}, [fetchNearby]);
 
     const handleMapMoveEnd = useCallback((bounds: MapBounds) => {
         if (initialFetchDone.current) {
