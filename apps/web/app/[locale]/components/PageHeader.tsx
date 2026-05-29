@@ -71,7 +71,7 @@ export const PageHeader = ({
                     
                     {/* NEW VACCINE HUB LINK COMPONENT */}
                     <Link
-                        href="/Vaccine-Hub"
+                        href="/vaccine-hub"
                         aria-label="Navigate to Immunization Vaccine Hub"
                         className={`flex h-10 px-3 items-center justify-center gap-1.5 rounded-full font-semibold text-xs transition-all ${pageHeaderFocusRingClass} ${
                             isDark 

@@ -208,7 +208,7 @@ export default function SahiDawaHome() {
 
 
 <Link
-  href="/Vaccine-Hub"
+  href="/vaccine-hub"
   className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-emerald-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-md"
 >
   <div>
