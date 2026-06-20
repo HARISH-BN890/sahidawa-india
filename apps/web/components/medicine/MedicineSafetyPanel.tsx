@@ -103,8 +103,6 @@ export function MedicineSafetyPanel({ searchQuery, onClose }: MedicineSafetyPane
 
     const t = useTranslations("medicineSafety");
 
-    const t = useTranslations("medicineSafety");
-
     const [activeTab, setActiveTab] = useState<TabType>("sideEffects");
     const [ageGroup, setAgeGroup] = useState<AgeGroupKey>("adults");
 

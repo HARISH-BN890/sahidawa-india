@@ -82,7 +82,15 @@
         "showLess": "Show Less",
         "genericName": "Generic Name",
         "dosageForm": "Dosage Form",
-        "composition": "Composition"
+        "composition": "Composition",
+
+        "ScanBarcode": "Scan Barcode",
+        "stopScanner": "Stop Scanner",
+        "uploadPhoto": "Upload Photo",
+        "enterBatchNumber": "Enter Batch Number",
+        "batchNumberHelp": "Enter the batch number printed on the medicine package",
+        "verify": "Verify",
+        "viewHistory": "View History"
     },
     "BackToTopButton": {
         "label": "Back to top"

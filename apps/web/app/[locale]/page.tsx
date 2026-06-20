@@ -178,7 +178,15 @@ export default function SahiDawaHome() {
 
                 <div className="container mx-auto max-w-6xl px-4">
                     {/* ── Primary Action: Scan Medicine ── */}
-                    <section className="mt-4 mb-10">
+                    <section className="mt-8 mb-12">
+                        <div className="mb-6">
+                            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+                                Scan & Verify Medicine
+                            </h2>
+                            <p className="mt-2 text-slate-500 dark:text-slate-400">
+                                Verify medicine authenticity using barcode or package scanning.
+                            </p>
+                        </div>
                         <button
                             onClick={() => handleNavigation("scan")}
                             className="group relative flex w-full transform-gpu cursor-pointer flex-col justify-center overflow-hidden rounded-3xl border border-emerald-400/30 p-8 text-left text-white shadow-xl shadow-emerald-500/10 transition-all duration-300 select-none hover:scale-[1.01] hover:shadow-emerald-500/20 active:scale-[0.99] md:p-10"
