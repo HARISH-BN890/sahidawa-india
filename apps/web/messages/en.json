@@ -124,6 +124,7 @@
         "batchNumberHelp": "Enter the batch number printed on the medicine package",
         "verify": "Verify",
         "viewHistory": "View History"
+        "viewHistory": "View History",
         "offlineVerify": "Queue Scan"
     },
     "BackToTopButton": {

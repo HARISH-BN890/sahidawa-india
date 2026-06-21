@@ -392,8 +392,15 @@ export default function ScanPage() {
                                 <button
                                     onClick={handleDismissResult}
                                     className="absolute top-4 right-4 z-40 rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                                    aria-label="Close verification result (Press Escape)"
+                                    title="Close result (Esc)"
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Escape") {
+                                            handleDismissResult();
+                                        }
+                                    }}
                                 >
-                                    <X size={24} />
+                                    <X size={24} aria-hidden="true" />
                                 </button>
 
                                 {verifyError && (
@@ -519,7 +526,11 @@ export default function ScanPage() {
                     onSubmit={handleBatchSubmit}
                     className="flex w-full max-w-sm flex-col gap-3 sm:flex-row"
                 >
+                    <label htmlFor="batch-input" className="sr-only">
+                        Enter batch number
+                    </label>
                     <input
+                        id="batch-input"
                         type="text"
                         value={batchInput}
                         onChange={(e) => setBatchInput(e.target.value)}
@@ -530,8 +541,16 @@ export default function ScanPage() {
                         type="submit"
                         disabled={isScanning}
                         className="flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-sm font-bold text-white shadow-lg transition-colors hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-50"
+                        aria-label={
+                            isScanning
+                                ? "Verifying medicine..."
+                                : isOffline
+                                  ? "Verify button disabled - offline"
+                                  : "Verify medicine batch number"
+                        }
+                        aria-busy={isScanning}
                     >
-                        <Search size={18} />
+                        <Search size={18} aria-hidden="true" />
                         {isOffline ? tScan("offlineVerify") : tScan("verify")}
                     </button>
                 </form>
@@ -561,6 +580,14 @@ export default function ScanPage() {
                             }`}
                         >
                             <ScanLine size={18} />
+                            aria-label={
+                                isCameraActive
+                                    ? "Stop barcode scanner camera"
+                                    : "Start barcode scanner camera"
+                            }
+                            aria-pressed={isCameraActive}
+                        >
+                            <ScanLine size={18} aria-hidden="true" />
                             {isCameraActive ? tScan("stopScanner") : tScan("ScanBarcode")}
                         </button>
                         <label
@@ -601,6 +628,13 @@ export default function ScanPage() {
                         <Layers size={18} />
                         {tScan("uploadPhoto")}
                     </label>
+                            aria-label="Upload medicine photo from device (disabled while offline)"
+                            aria-disabled={isOffline}
+                        >
+                            <Layers size={18} aria-hidden="true" />
+                            {tScan("uploadPhoto")}
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
