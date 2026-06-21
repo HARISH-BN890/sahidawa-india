@@ -608,6 +608,7 @@ export default function ScanPage() {
                             {tScan("uploadPhoto")}
                         </label>
                     </div>
+<<<<<<< HEAD
 
                 <div className="flex gap-4">
                     <button
@@ -635,6 +636,8 @@ export default function ScanPage() {
                             {tScan("uploadPhoto")}
                         </label>
                     </div>
+=======
+>>>>>>> 0d1765ac (fix: scan translation keys)
                 </div>
             </div>
         </div>

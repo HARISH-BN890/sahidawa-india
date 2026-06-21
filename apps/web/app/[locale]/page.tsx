@@ -187,22 +187,22 @@ export default function SahiDawaHome() {
                                 Verify medicine authenticity using barcode or package scanning.
                             </p>
                         </div>
-                    <section className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mt-4 mb-10 duration-700">
-                        <button
-                            onClick={() => handleNavigation("scan")}
-                            className="group relative flex w-full transform-gpu cursor-pointer flex-col justify-center overflow-hidden rounded-[2.5rem] border border-white/10 p-8 text-left text-white shadow-2xl shadow-emerald-900/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-emerald-500/30 active:scale-[0.98] md:p-10"
-                            aria-label="Scan medicine"
-                        >
-                            {/* Rich Depth Background */}
-                            <div className="absolute inset-0 z-0 bg-linear-to-br from-emerald-600 via-emerald-500 to-teal-700"></div>
+                        <section className="animate-in slide-in-from-bottom-8 fade-in fill-mode-both mt-4 mb-10 duration-700">
+                            <button
+                                onClick={() => handleNavigation("scan")}
+                                className="group relative flex w-full transform-gpu cursor-pointer flex-col justify-center overflow-hidden rounded-[2.5rem] border border-white/10 p-8 text-left text-white shadow-2xl shadow-emerald-900/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-emerald-500/30 active:scale-[0.98] md:p-10"
+                                aria-label="Scan medicine"
+                            >
+                                {/* Rich Depth Background */}
+                                <div className="absolute inset-0 z-0 bg-linear-to-br from-emerald-600 via-emerald-500 to-teal-700"></div>
 
-                            {/* Inner Glow / Vignette */}
-                            <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent"></div>
-                            <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-black/10 via-transparent to-transparent"></div>
+                                {/* Inner Glow / Vignette */}
+                                <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent"></div>
+                                <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-black/10 via-transparent to-transparent"></div>
 
-                            {/* Floating decorative blobs */}
-                            <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-teal-400/30 mix-blend-overlay blur-3xl transition-transform duration-700 group-hover:translate-x-10 group-hover:scale-110"></div>
-                            <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-emerald-300/20 mix-blend-overlay blur-3xl transition-transform duration-700 group-hover:-translate-x-10 group-hover:scale-110"></div>
+                                {/* Floating decorative blobs */}
+                                <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-teal-400/30 mix-blend-overlay blur-3xl transition-transform duration-700 group-hover:translate-x-10 group-hover:scale-110"></div>
+                                <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-emerald-300/20 mix-blend-overlay blur-3xl transition-transform duration-700 group-hover:-translate-x-10 group-hover:scale-110"></div>
 
                             {/* Premium reflective shine effect */}
                             <div className="absolute inset-0 z-10 -translate-x-[150%] skew-x-[-30deg] bg-linear-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[150%]"></div>
