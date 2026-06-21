@@ -52,10 +52,20 @@ export function UnverifiedResult({
                         size={18}
                         className="mt-0.5 shrink-0 text-amber-600 dark:text-amber-400"
                     />
-                    <p className="dark:text-amber-450 text-xs leading-relaxed font-medium text-amber-800">
-                        No matching record was found for this medicine batch in the CDSCO database.
-                        Please verify the spelling or report it if suspicious.
-                    </p>
+                    <div className="dark:text-amber-450 text-left text-xs leading-relaxed font-medium text-amber-800">
+                        <p>
+                            No matching record was found for this medicine batch in the CDSCO
+                            database.
+                        </p>
+
+                        <ul className="mt-2 list-disc pl-4">
+                            <li>Try scanning the medicine again.</li>
+                            <li>Ensure good lighting conditions.</li>
+                            <li>Check that the barcode or label is clearly visible.</li>
+                            <li>Enter medicine details manually if available.</li>
+                            <li>Report the medicine if it appears suspicious.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <ResultActions
